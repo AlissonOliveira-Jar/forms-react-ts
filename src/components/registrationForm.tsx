@@ -29,7 +29,7 @@ const RegistrationForm = () => {
                 <input 
                     type="text" 
                     id="name" 
-                    placeholder="Digite o seu nome." 
+                    placeholder="Digite o seu nome" 
                     {...register("name")}
                     className="h-10 pl-2 rounded-md border border-slate-300"
                 />
@@ -37,7 +37,91 @@ const RegistrationForm = () => {
                     <small className="text-red-500 italic" style={{ color: 'red' }}>{errors.name.message}</small>
                 )}
             </div>
-            <button type="submit" className="w-full h-11 bg-cyan-400 rounded-md my-2 hover:bg-cyan-500 transition-all">Cadastrar</button>
+            <div className="flex flex-col gap-2 mb-2">
+                <label htmlFor="lastname">Sobrenome:</label>
+                <input 
+                    type="text" 
+                    id="lastname" 
+                    placeholder="Digite o seu sobrenome" 
+                    {...register("lastname")}
+                    className="h-10 pl-2 rounded-md border border-slate-300"
+                />
+                {errors.lastname && (
+                    <small className="text-red-500 italic" style={{ color: 'red' }}>{errors.lastname.message}</small>
+                )}
+            </div>
+            <div className="flex flex-col gap-2 mb-2">
+                <label htmlFor="gender">Gênero:</label>
+                <select id="gender" {...register("gender")} className="h-10 pl-1 rounded-md border border-slate-300">
+                    <option value="select">Selecione</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="outro">Outro</option>
+                </select>
+                {errors.gender && (
+                    <small className="text-red-500 italic" style={{ color: 'red' }}>{errors.gender.message}</small>
+                )}
+            </div>
+            <div className="flex flex-col gap-2 mb-2">
+                <label htmlFor="email">E-mail:</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    placeholder="Digite o seu e-mail" 
+                    {...register("email")}
+                    className="h-10 pl-2 rounded-md border border-slate-300"
+                />
+                {errors.email && (
+                    <small className="text-red-500 italic" style={{ color: 'red' }}>{errors.email.message}</small>
+                )}
+            </div>
+            <div className="flex flex-col gap-2 mb-2">
+                <label htmlFor="password">Senha:</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    placeholder="Digite a sua senha" 
+                    {...register("password")}
+                    className="h-10 pl-2 rounded-md border border-slate-300"
+                />
+                {errors.password && (
+                    <small className="text-red-500 italic" style={{ color: 'red' }}>{errors.password.message}</small>
+                )}
+            </div>
+            <div className="flex flex-col gap-2 mb-2">
+                <label htmlFor="confirmpassword">Confirmação de Senha:</label>
+                <input 
+                    type="confirmpassword" 
+                    id="confirmpassword" 
+                    placeholder="Confirme a sua senha" 
+                    {...register("confirmpassword")}
+                    className="h-10 pl-2 rounded-md border border-slate-300"
+                />
+                {errors.confirmpassword && (
+                    <small className="text-red-500 italic" style={{ color: 'red' }}>{errors.confirmpassword.message}</small>
+                )}
+            </div>
+            <div className="flex gap-2 mb-2">
+                <div className="flex not-[]:gap-2">
+                    <input 
+                    type="checkbox" 
+                    id="agree" 
+                    {...register("agree")}
+                />
+                </div>
+                <label htmlFor="agree">Você aceita os termos de uso?</label>
+                {errors.agree && (
+                    <small className="text-red-500 italic" style={{ color: 'red' }}>{errors.agree.message}</small>
+                )}
+            </div>
+            <button 
+            type="submit" 
+            className="w-full h-11 rounded-md my-2 text-white font-bold
+                    bg-gradient-to-r from-blue-600 to-violet-600 
+                    hover:scale-105 hover:shadow-lg hover:shadow-violet-500/50 
+                    transition-all duration-500">
+            Cadastrar
+            </button>
         </form>
     );
 };
