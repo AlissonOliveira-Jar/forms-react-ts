@@ -1,11 +1,9 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { formSchema } from "../schemas/formSchema";   // <-- Importe o schema
-import type { FormSchema } from "../schemas/formSchema"; // <-- Importe o tipo
+import { formSchema } from "../schemas/formSchema";
+import type { FormSchema } from "../schemas/formSchema";
 
-// 1. Renomeie o componente
 const RegistrationForm = () => {
-    // 2. Configure o useForm corretamente com o tipo e o resolver
     const { 
         register, 
         handleSubmit, 
